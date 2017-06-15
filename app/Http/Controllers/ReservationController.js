@@ -25,6 +25,22 @@ class ReservationController {
       return yield this.getAll(req, res);
     }
   }
+
+  * findById(req, res){
+    const routeParams = req.params();
+
+    console.log(routeParams);
+
+    const {id} = routeParams;
+    if(id){
+      const reservation = yield Reservation.find(id);
+      if(reservation){
+        return res.ok(reservation);
+      }
+    }
+
+    return res.ok('Please submit id or We cant find your reservation');
+  }
 }
 
 module.exports = ReservationController

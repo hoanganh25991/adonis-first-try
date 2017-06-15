@@ -27,3 +27,5 @@ Route.get('login').render('login');
 //Route.get('reservations', 'ReservationController.getAll');
 Route.get('reservations', 'ReservationController.findByName');
 Route.post('reservations', 'ReservationController.findByName');
+// Try with route param & template
+Route.get('reservations/:id', 'ReservationController.findById');
