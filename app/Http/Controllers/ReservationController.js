@@ -12,7 +12,9 @@ class ReservationController {
     let paramsObj = req.get();
     let hasData   =  Object.keys(paramsObj).length > 0
     paramsObj     = hasData ? paramsObj : req.post();
-
+    // When handle POST
+    // No difference from json or url-encode as form-data
+    // Quite nice
     console.log(paramsObj);
 
     const {name} = paramsObj;
