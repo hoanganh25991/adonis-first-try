@@ -9,13 +9,18 @@ class ReservationController {
   }
 
   * findByName(req, res){
-    const paramsObj = req.get();
+    let paramsObj = req.get();
+    let hasData   =  Object.keys(paramsObj).length > 0
+    paramsObj     = hasData ? paramsObj : req.post();
+
+    console.log(paramsObj);
+
     const {name} = paramsObj;
     if(name){
       const reservations = yield Reservation.query().where('first_name', 'LIKE', name).fetch();
       return res.ok(reservations);
     }else{
-      return this.getAll(req, res);
+      return yield this.getAll(req, res);
     }
   }
 }
