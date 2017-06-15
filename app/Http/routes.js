@@ -20,7 +20,8 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 Route.get('login').render('login');
-Route.get('reservations', function* (request, response){
-	const reservations = yield Reservation.all() 
-  	response.ok(reservations)
-});
+// Route.get('reservations', function* (request, response){
+// 	const reservations = yield Reservation.all()
+//   	response.ok(reservations)
+// });
+Route.get('reservations', 'ReservationController.getAll');
