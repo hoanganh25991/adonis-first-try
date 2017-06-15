@@ -24,4 +24,5 @@ Route.get('login').render('login');
 // 	const reservations = yield Reservation.all()
 //   	response.ok(reservations)
 // });
-Route.get('reservations', 'ReservationController.getAll');
+//Route.get('reservations', 'ReservationController.getAll');
+Route.get('reservations', 'ReservationController.findByName');
